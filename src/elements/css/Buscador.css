@@ -1,3 +1,35 @@
 .Buscador{
     background: var(--color2);
+    width: 40%;
+    border-radius: 25px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+.Buscador button{
+    background: none;
+    border: none;
+}
+.Buscador button:focus{
+    outline-style: none;
+}
+
+.Buscador button img{
+
+}
+.Buscador button img:hover{
+    transform: translate(-3px);
+    padding-left: 3px;
+}
+.Buscador input{
+    width: 70%;
+    padding-left: 7%;
+    background: none;
+    border: none;
+    color: var(--color0);
+}
+.Buscador input:focus{
+    outline-style: none;
 }
