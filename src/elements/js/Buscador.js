@@ -33,7 +33,8 @@ class Buscador extends Component {
             value={this.state.search} 
             id="input-search"
             onChange= {this.onChange.bind(this)} 
-            placeholder="Buscador..." />   
+            placeholder="Buscador..." /> 
+
         </div>
       );
     }

@@ -3,8 +3,49 @@
 .Nav{
     background:var(--color1);
     display: flex;
+    justify-content: space-between;
+    max-height: 50px;
+    
 
 }
-.Nav img{
+.nav1{
+    background:var(--color1);
+    display: flex;
+}
+.logo-img{
     margin-left: 15px;
+    margin-right: 15px;
+    width: auto;
+    height: 100%;
+    align-self: center;
+}
+
+.enlace-nav{
+    color: var(--color0);
+    font-size: 1em;
+    padding: 2%;
+    text-decoration: none;
+    align-self: center;
+}
+.enlace-nav:hover{
+    border-width: 0 0 3px 0;
+    background: rgba(0, 0, 0, .2);
+    border-radius: 10%;
+}
+
+.img-menu-p{
+    height: 100%;
+    width: auto;
+}
+.boton-menu-p{
+    height: 100%;
+    width: auto;
+    background: none;
+    border: none;
+}
+.boton-menu-p:focus{
+    outline-style: none;
+}
+.boton-menu-p:hover{
+    padding-top: 2px;
 }

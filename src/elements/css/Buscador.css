@@ -3,7 +3,6 @@
     width: 40%;
     max-width: 300px;
     border-radius: 25px;
-    margin-left: 3%;
     display: flex;
     align-items: center;
 
@@ -17,9 +16,6 @@
     outline-style: none;
 }
 
-.Buscador button img{
-
-}
 .Buscador button img:hover{
     transform: translate(-3px);
     padding-left: 3px;
