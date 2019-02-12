@@ -1,8 +1,9 @@
 .Buscador{
     background: var(--color2);
     width: 40%;
+    max-width: 300px;
     border-radius: 25px;
-    padding: 5px;
+    margin-left: 3%;
     display: flex;
     align-items: center;
 
