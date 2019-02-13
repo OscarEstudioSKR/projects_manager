@@ -1,3 +1,93 @@
 .Footer{
+    position: relative;
+    height: 700px;
+    display:flex;
+    flex-flow: row wrap;
+}
+
+.footer-1{
+    color: rgb(107, 107, 107);
+    height: 50%;
+    min-width: 300px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 20%;
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+}
+
+.descripcion-ayuda{
+    margin-top:-5%;
+    text-align: justify;
+}
+
+.cont-textImg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+    font-size: .8em;
+}
+
+
+.tituloChico{
+    margin-left: 5%;
+}
+.footer-1 img{
+    width: auto;
+    height: 30px;
+}
+
+.footer-2{
+    height: 45%;
+    width: 100%;
+    color: rgb(136, 135, 135);
     background: var(--color1);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.contenedor-footer2{
+    padding-top: 7%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.div-corto{
+    width: 30%;
+    margin-left: 3%;
+    align-self: flex-end;
+    font-size: 0.75em;
+}
+
+.cont-logo-redes img{
+    opacity: .3;
+    width: 30px;
+    height: auto;
+    padding-left: 5%;
+}
+
+.contenedor-enlaces-footer{
+    width: 100%;
+    padding: 3%;
+    align-self: flex-end;
+    margin-top: 3%;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-enlaces-footer a{
+    width: 20%;
+    text-align: center;
+}
+.texto-medio{
+    font-size: 1.23em;
 }

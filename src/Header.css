@@ -2,7 +2,42 @@
     width: 95%;
     max-width: 1200px;
     align-self: center;
-
-    background: green;
 }
 
+.MainPage{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    
+}
+.MainPage h1{
+    width: 100%;
+    padding-top: 10vh;
+}
+.MainPage h2{
+    margin-top: -2%;
+    width: 100%;
+}
+.MainPage img{
+    width: auto;
+    height: 100px;
+    margin-top: 1%;
+
+}
+.MainPage div{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    
+}
+.parrafo-50{
+
+    text-align: justify;
+    width: 45%;
+    min-width: 400px;
+    max-width: 90%;
+    margin: 5% 2% 10% 2%;
+    font-size: 1em;
+
+}
