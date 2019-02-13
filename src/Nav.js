@@ -24,14 +24,14 @@ class Nav extends Component {
         this.setState({
             menuUserAbierto: !this.state.menuUserAbierto,
             menuOtionsAbierto: false,
-        });console.log("user");
+        });
     }
 
     abrirMenuOpt(menu){
         this.setState({
             menuOtionsAbierto: !this.state.menuOtionsAbierto,
             menuUserAbierto: false,
-        });console.log("opt");
+        });
     }
 
     render() {
@@ -59,6 +59,7 @@ class Nav extends Component {
     MenuUser(props){
         return(
             <div className="menuUsers">
+                <div className="flechaAzul"/>
                 <div className="cont-datosNav">
                     <img src={checkImg} />
                     <h3 className="datosNav">{props.user.nombre}</h3>
@@ -76,10 +77,11 @@ class Nav extends Component {
     MenuOpt(props){
         return(
             <div className="menuOpt">
-                <a>Perfil</a>
-                <a>Mis proyectos</a>
-                <a>Mis equipos</a>
-                <a>Perfil</a>
+                <div className="flechaBlanca"/>
+                <a>Opciones</a>
+                <a>Cambiar perfil</a>
+                <a>Ayuda</a>
+                <a>Creditos</a>
             </div> 
         )
     }

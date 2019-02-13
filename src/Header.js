@@ -4,6 +4,7 @@ class Header extends Component {
     render() {
       return (
         <div className="Header">
+        <div class="flecha"/>
             <p>Esto es un parrafo</p>
         </div>
       );

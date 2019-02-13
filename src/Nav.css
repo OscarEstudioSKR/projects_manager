@@ -81,6 +81,32 @@
     margin-right: 7%;
 }
 
+.flechaAzul {
+    position: absolute;
+    top: -3%;
+    right: 115px;
+	height: 0px; width: 0px;
+    border: 12px solid;
+	border-color: 
+        var(--color2)
+        var(--color2)
+		transparent
+		transparent;
+	transform: rotate(-45deg);
+}
+.flechaBlanca {
+    position: absolute;
+    top: -5%;
+    right: 40px;
+	height: 0px; width: 0px;
+    border: 12px solid;
+	border-color: 
+        var(--color0)
+        var(--color0)
+		transparent
+		transparent;
+	transform: rotate(-45deg);
+}
 
 .menuUsers{
     position: absolute;
@@ -90,7 +116,7 @@
     height: 30vh;
     min-height: 300px;
     right: 0%;
-    top: 100%;
+    top: 105%;
     background: var(--color2);
     color: var(--color0);
     display:flex;
@@ -99,9 +125,6 @@
     align-content: center;
     font-size: 1.1em;
     border-radius: 10px;
-    
-
-
 }
 .cont-datosNav{
     display:flex;
@@ -153,7 +176,7 @@
     height: 10vh;
     min-height: 150px;
     right: 0%;
-    top: 100%;
+    top: 105%;
     background: var(--color0);
     color: rgb(43, 37, 37);
     display:flex;
@@ -161,7 +184,7 @@
     justify-content: center;
     font-size: 1.1em;
     border-radius: 10px;
-    border: 1px solid rgb(195, 195, 196);
+    border: 1px solid var(--color5);
 }
 .menuOpt a{
     padding-left: 10%;

@@ -1,3 +1,8 @@
 .Header{
+    width: 95%;
+    max-width: 1200px;
+    align-self: center;
+
     background: green;
 }
+
