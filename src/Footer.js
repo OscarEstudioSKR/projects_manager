@@ -18,6 +18,9 @@ class Footer extends Component {
               <div className="cont-textImg"><img src={icono1}/><p className="tituloChico">Contacta con nosotros</p></div>
               <div className="cont-textImg"><img src={icono2}/><p className="tituloChico">Contacta con nosotros</p></div>
               <div className="cont-textImg"><img src={icono3}/><p className="tituloChico">Contacta con nosotros</p></div>
+              <form className="form-contacto-footer">
+                dddd
+              </form>
             </div>
             <div className="footer-2">
               <div className="contenedor-footer2">
@@ -36,9 +39,9 @@ class Footer extends Component {
                   <a><strong>términos</strong></a>
                   <a><strong>contácto</strong></a>
                 </div> 
-              </div>
-                        
+              </div>        
             </div>
+            
         </div>
       );
     }

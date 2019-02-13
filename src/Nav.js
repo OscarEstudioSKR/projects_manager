@@ -37,13 +37,13 @@ class Nav extends Component {
     render() {
       return (
         <div className="Nav">
-            <div className="nav1">
+            <div className="nav">
                 <img className="logo-img" src={logoP}/>
                 <Buscador />
                 <a className="enlace-nav" href="#">Proyectos</a>
                 <a className="enlace-nav" href="#">Equipos</a>
             </div>
-            <div className="nav1">
+            <div className="nav nav2">
                 <button className="boton-anadir"><img src={anadir} className="img-anadir"/></button>
                 <button onClick={this.abrirMenuUser = this.abrirMenuUser.bind(this)} className="boton-menu-p boton-user"><img src={userImg0} className="user-logo"/><img src={triangulo} className="triangulo"/></button>
                 <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
