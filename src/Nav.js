@@ -20,12 +20,20 @@ class Nav extends Component {
         }
       }
 
-    abrirMenuUser(){
+    abrirMenuUser(menu){
         this.setState({
             menuUserAbierto: !this.state.menuUserAbierto,
-        })
-
+            menuOtionsAbierto: false,
+        });console.log("user");
     }
+
+    abrirMenuOpt(menu){
+        this.setState({
+            menuOtionsAbierto: !this.state.menuOtionsAbierto,
+            menuUserAbierto: false,
+        });console.log("opt");
+    }
+
     render() {
       return (
         <div className="Nav">
@@ -38,14 +46,12 @@ class Nav extends Component {
             <div className="nav1">
                 <button className="boton-anadir"><img src={anadir} className="img-anadir"/></button>
                 <button onClick={this.abrirMenuUser = this.abrirMenuUser.bind(this)} className="boton-menu-p boton-user"><img src={userImg0} className="user-logo"/><img src={triangulo} className="triangulo"/></button>
-
-                <button className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
+                <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
             </div>
             
-            {this.state.menuUserAbierto && (
-                <this.MenuUser user={this.props.user}/>
-                
-                )}
+            {this.state.menuUserAbierto && (<this.MenuUser user={this.props.user}/>)}
+            {this.state.menuOtionsAbierto && (<this.MenuOpt user={this.props.user}/>)}
+
         </div>
       );
     }
@@ -59,13 +65,22 @@ class Nav extends Component {
                 </div>
                 <div className="botonesNav">
                     <a>Perfil</a>
-                    <a>Perfil</a>
-                    <a>Perfil</a>
+                    <a>Mis proyectos</a>
+                    <a>Mis equipos</a>
                     <a>Perfil</a>
                 </div>
-                
-            </div>
-            
+                <a className="botonDesconectar">Desconectar</a>
+            </div> 
+        )
+    }
+    MenuOpt(props){
+        return(
+            <div className="menuOpt">
+                <a>Perfil</a>
+                <a>Mis proyectos</a>
+                <a>Mis equipos</a>
+                <a>Perfil</a>
+            </div> 
         )
     }
 
