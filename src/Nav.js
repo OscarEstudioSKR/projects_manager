@@ -49,8 +49,8 @@ class Nav extends Component {
                 <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
             </div>
             
-            {this.state.menuUserAbierto && (<this.MenuUser user={this.props.user}/>)}
-            {this.state.menuOtionsAbierto && (<this.MenuOpt user={this.props.user}/>)}
+            {this.state.menuUserAbierto && (<this.MenuUser user={this.props.user.cliente}/>)}
+            {this.state.menuOtionsAbierto && (<this.MenuOpt user={this.props.user.cliente}/>)}
 
         </div>
       );

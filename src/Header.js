@@ -10,8 +10,7 @@ class Header extends Component {
     render() {
       return (
         <div className="Header">
-            {this.props.pagina === "Main" && <this.Main />}
-
+            {this.props.user.pagina === "Main" && <this.Main />}
         </div>
       );
     }

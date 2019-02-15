@@ -14,8 +14,8 @@ class Footer extends Component {
     constructor(props){
       super(props);
       this.state = {
-        formName: this.props.user.nombre === "Invitado" ? "" : this.props.user.nombre,
-        formMail: this.props.user.correo,
+        formName: this.props.user.cliente.nombre === "Invitado" ? "" : this.props.user.cliente.nombre,
+        formMail: this.props.user.cliente.correo,
         formMensaje: "",
         formEnviado: false,
         cerrarFormulario: ()=> this.setState({ formEnviado: false, formMensaje: "" }),

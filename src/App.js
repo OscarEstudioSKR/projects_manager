@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state= {
       pagina: "Main",
-      user: { 
+      cliente: { 
         nombre: "Invitado",
         imgUser: "Invitado",
         correo: ""
@@ -23,9 +23,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.user}/>
-        <Header user={this.state.user} pagina={this.state.pagina}/>
-        <Footer user={this.state.user}/>
+        <Nav user={this.state}/>
+        <Header user={this.state}/>
+        <Footer user={this.state}/>
       </div>
     );
   }
