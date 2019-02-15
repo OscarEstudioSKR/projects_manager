@@ -81,7 +81,7 @@ class Nav extends Component {
                 <a>Opciones</a>
                 <a>Cambiar perfil</a>
                 <a>Ayuda</a>
-                <a>Creditos</a>
+                <a href="#Footer">Contacto</a>
             </div> 
         )
     }

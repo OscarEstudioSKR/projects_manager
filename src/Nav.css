@@ -77,6 +77,12 @@
     border: none;
     outline-style: none;
 }
+.botonesNav a{
+    text-decoration: none;
+}
+.menuOpt a{
+    text-decoration: none;
+}
 
 .boton-menu-p:hover{
     padding-top: 3px;
