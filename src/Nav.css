@@ -77,9 +77,7 @@
     border: none;
     outline-style: none;
 }
-.botonesNav a{
-    text-decoration: none;
-}
+
 .menuOpt a{
     text-decoration: none;
 }
@@ -136,6 +134,7 @@
 }
 
 .menuUsers{
+    z-index: 5;
     position: absolute;
     width: 30%;
     max-width: 400px;
@@ -201,8 +200,9 @@
 
 .botonesNav a{
     background: var(--color3);
+    text-decoration: none;
     display: block;
-    height: 16%;
+    height: 20%;
     padding-left: 5%;
     padding-top: 3%;
    
@@ -214,6 +214,7 @@
 }
 
 .menuOpt{
+    z-index: 5;
     position: absolute;
     width: 20%;
     max-width: 250px;

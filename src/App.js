@@ -20,12 +20,14 @@ class App extends Component {
     }
   }
 
+  cambiarPagina = (e) => this.setState({ pagina: e });
+
   render() {
     return (
       <div className="App">
-        <Nav user={this.state}/>
-        <Header user={this.state}/>
-        <Footer user={this.state}/>
+        {<Nav user={this.state} cambiarPagina={this.cambiarPagina}/>}
+        <Header user={this.state} cambiarPagina={this.cambiarPagina}/>
+        <Footer user={this.state} cambiarPagina={this.cambiarPagina}/>
       </div>
     );
   }

@@ -11,6 +11,10 @@ class Header extends Component {
       return (
         <div className="Header">
             {this.props.user.pagina === "Main" && <this.Main />}
+            {this.props.user.pagina === "Proyectos" && <this.Proyectos />}
+            {this.props.user.pagina === "Equipos" && <this.Equipos />}
+            {this.props.user.pagina === "Perfil" && <this.Perfil />}
+            {this.props.user.pagina === "Opciones" && <this.Opciones />}
         </div>
       );
     }
@@ -26,7 +30,27 @@ class Header extends Component {
           </div>
         </div>);}
 
-
+    Proyectos(){
+      return(
+        <div className="MainPage">
+          <h1>Proyectos</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>  
+        </div>);}
+      
+    Equipos(){
+      return(
+        <div className="MainPage">
+          <h1>Equipos</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
+        </div>);}
+    Perfil(){
+      return(
+        <div className="MainPage">
+          <h1>Perfil</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
+        </div>);}
+    Opciones(){
+        return(
+          <div className="MainPage">
+            <h1>Opciones</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
+          </div>);}
 
 
 

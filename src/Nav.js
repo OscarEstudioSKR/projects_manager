@@ -33,15 +33,22 @@ class Nav extends Component {
             menuUserAbierto: false,
         });
     }
+    cerrarMenus= ()=> {
+        this.setState({
+            menuOtionsAbierto: false,
+            menuUserAbierto: false,
+        });
+    }
+
 
     render() {
       return (
         <div className="Nav">
             <div className="nav">
-                <img className="logo-img" src={logoP}/>
+                <img className="logo-img" src={logoP} onClick={()=>this.props.cambiarPagina("Main")}/>
                 <Buscador />
-                <a className="enlace-nav" href="#">Proyectos</a>
-                <a className="enlace-nav" href="#">Equipos</a>
+                <a className="enlace-nav" onClick={()=>this.props.cambiarPagina("Proyectos")}>Proyectos</a>
+                <a className="enlace-nav" onClick={()=>this.props.cambiarPagina("Equipos")}>Equipos</a>
             </div>
             <div className="nav nav2">
                 <button className="boton-anadir"><img src={anadir} className="img-anadir"/></button>
@@ -49,8 +56,8 @@ class Nav extends Component {
                 <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
             </div>
             
-            {this.state.menuUserAbierto && (<this.MenuUser user={this.props.user.cliente}/>)}
-            {this.state.menuOtionsAbierto && (<this.MenuOpt user={this.props.user.cliente}/>)}
+            {this.state.menuUserAbierto && (<this.MenuUser user={this.props.user} cambiarPagina={this.props.cambiarPagina} cerrarMenus={this.cerrarMenus}/>)}
+            {this.state.menuOtionsAbierto && (<this.MenuOpt user={this.props.user} cambiarPagina={this.props.cambiarPagina} cerrarMenus={this.cerrarMenus}/>)}
 
         </div>
       );
@@ -62,13 +69,12 @@ class Nav extends Component {
                 <div className="flechaAzul"/>
                 <div className="cont-datosNav">
                     <img src={checkImg} />
-                    <h3 className="datosNav">{props.user.nombre}</h3>
+                    <h3 className="datosNav">{props.user.cliente.nombre}</h3>
                 </div>
                 <div className="botonesNav">
-                    <a>Perfil</a>
-                    <a>Mis proyectos</a>
-                    <a>Mis equipos</a>
-                    <a>Perfil</a>
+                    <a onClick={()=>(props.cambiarPagina("Perfil"), props.cerrarMenus())}>Perfil</a>
+                    <a onClick={()=>(props.cambiarPagina("Proyectos"), props.cerrarMenus())}>Mis proyectos</a>
+                    <a onClick={()=>(props.cambiarPagina("Equipos"), props.cerrarMenus())}>Mis equipos</a>
                 </div>
                 <a className="botonDesconectar">Desconectar</a>
             </div> 
@@ -78,7 +84,7 @@ class Nav extends Component {
         return(
             <div className="menuOpt">
                 <div className="flechaBlanca"/>
-                <a>Opciones</a>
+                <a onClick={()=>(props.cambiarPagina("Opciones"), props.cerrarMenus())}>Opciones</a>
                 <a>Cambiar perfil</a>
                 <a>Ayuda</a>
                 <a href="#Footer">Contacto</a>
