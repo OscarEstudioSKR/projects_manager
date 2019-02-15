@@ -71,9 +71,9 @@ class Footer extends Component {
             <div className="footer-1">
               <h4>CREA UN NUEVO PROYECTO</h4>
               <p className="descripcion-ayuda">Busca en el navegador el botón de añadir para iniciar un nuevo proyecto o accede a uno ya creado a través de la pestaña Proyectos.</p>
-              <div className="cont-textImg"><img src={icono1}/><p className="tituloChico">Contacta con nosotros</p></div>
-              <div className="cont-textImg"><img src={icono2}/><p className="tituloChico">Contacta con nosotros</p></div>
-              <div className="cont-textImg"><img src={icono3}/><p className="tituloChico">Contacta con nosotros</p></div>
+              <div className="cont-textImg"><img src={icono1}/><p className="tituloChico">Gestiona equipos</p></div>
+              <div className="cont-textImg"><img src={icono2}/><p className="tituloChico">Crea proyectos</p></div>
+              <div className="cont-textImg"><img src={icono3}/><p className="tituloChico">Planifica tareas</p></div>
               
               <form className="form-contacto-footer">
                 {this.state.formEnviado === false ? 

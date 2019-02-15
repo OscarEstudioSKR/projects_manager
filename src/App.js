@@ -11,7 +11,8 @@ class App extends Component {
   constructor(){
     super();
     this.state= {
-      user: {
+      pagina: "Main",
+      user: { 
         nombre: "Invitado",
         imgUser: "Invitado",
         correo: ""
@@ -23,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav user={this.state.user}/>
-        <Header user={this.state.user}/>
+        <Header user={this.state.user} pagina={this.state.pagina}/>
         <Footer user={this.state.user}/>
       </div>
     );
