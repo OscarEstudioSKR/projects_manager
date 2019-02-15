@@ -6,6 +6,7 @@ import './Nav.css';
 import './Header.css';
 import './Footer.css';
 import './App.css';
+import './css/proyectos.css';
 import App from './App';
 import Buscador from './elements/js/Buscador.js';
 import './elements/css/Buscador.css';

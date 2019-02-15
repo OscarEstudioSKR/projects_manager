@@ -1,4 +1,4 @@
-.Header{
+.Cuerpo{
     width: 95%;
     max-width: 1200px;
     -ms-flex-item-align: center;
@@ -17,11 +17,12 @@
         -ms-flex-align: center;
             align-items: center;
     text-align: center;
+    color: var(--color2)
     
 }
 .MainPage h1{
     width: 100%;
-    padding-top: 10vh;
+    padding-top: 3vh;
 }
 .MainPage h2{
     margin-top: -2%;

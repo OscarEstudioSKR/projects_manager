@@ -11,22 +11,27 @@ class App extends Component {
   constructor(){
     super();
     this.state= {
-      pagina: "Main",
+      pagina: "Proyectos",
       cliente: { 
         nombre: "Invitado",
         imgUser: "Invitado",
-        correo: ""
+        correo: "",
+        proyectos: [],
       },
     }
   }
 
   cambiarPagina = (e) => this.setState({ pagina: e });
 
+  nuevoProyecto = (e) => {
+    let todos = this.state.cliente.proyectos.push(e);
+    this.setState({ proyectos: todos });}
+
   render() {
     return (
       <div className="App">
         {<Nav user={this.state} cambiarPagina={this.cambiarPagina}/>}
-        <Header user={this.state} cambiarPagina={this.cambiarPagina}/>
+        <Header user={this.state} cambiarPagina={this.cambiarPagina} nuevoProyecto={this.nuevoProyecto}/>
         <Footer user={this.state} cambiarPagina={this.cambiarPagina}/>
       </div>
     );

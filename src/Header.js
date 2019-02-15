@@ -9,12 +9,12 @@ class Header extends Component {
   }
     render() {
       return (
-        <div className="Header">
-            {this.props.user.pagina === "Main" && <this.Main />}
-            {this.props.user.pagina === "Proyectos" && <this.Proyectos />}
-            {this.props.user.pagina === "Equipos" && <this.Equipos />}
-            {this.props.user.pagina === "Perfil" && <this.Perfil />}
-            {this.props.user.pagina === "Opciones" && <this.Opciones />}
+        <div className="Cuerpo">
+            {this.props.user.pagina === "Main" && <this.Main user={this.props.user}/>}
+            {this.props.user.pagina === "Proyectos" && <this.Proyectos user={this.props.user} nuevoProyecto={this.props.nuevoProyecto} caja={<this.CajaProject />}/>}
+            {this.props.user.pagina === "Equipos" && <this.Equipos user={this.props.user}/>}
+            {this.props.user.pagina === "Perfil" && <this.Perfil user={this.props.user}/>}
+            {this.props.user.pagina === "Opciones" && <this.Opciones user={this.props.user}/>}
         </div>
       );
     }
@@ -30,23 +30,41 @@ class Header extends Component {
           </div>
         </div>);}
 
-    Proyectos(){
+    Proyectos(e){
       return(
-        <div className="MainPage">
-          <h1>Proyectos</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>  
+        <div className="ProyectosPage">
+
+          <div className="proyectosPage-div1">1</div>
+
+          <div className="proyectosPage-div2">
+            <div className="proyectosPage-div2-cabecera">
+              <h2>{"Proyectos "+e.user.cliente.nombre}</h2>
+              <button onClick={e.nuevoProyecto}>Crear nuevo</button>
+              <line></line>
+            </div>
+            <div className="proyectosPage-div2-contenido">
+             { e.user.cliente.proyectos.map(()=>e.caja)}
+            </div>
+          </div>
         </div>);}
+
+    CajaProject(e){
+      return(
+        <div className="CajaProject">
+          <p>Caja Project</p>
+        </div>);}    
       
-    Equipos(){
+    Equipos(e){
       return(
         <div className="MainPage">
           <h1>Equipos</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
         </div>);}
-    Perfil(){
+    Perfil(e){
       return(
         <div className="MainPage">
           <h1>Perfil</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
         </div>);}
-    Opciones(){
+    Opciones(e){
         return(
           <div className="MainPage">
             <h1>Opciones</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
