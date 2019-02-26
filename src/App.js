@@ -24,14 +24,19 @@ class App extends Component {
   cambiarPagina = (e) => this.setState({ pagina: e });
 
   nuevoProyecto = (e) => {
-    let todos = this.state.cliente.proyectos.push(e);
-    this.setState({ proyectos: todos });}
+    this.setState({ proyectos: this.state.cliente.proyectos.push(e) });}
+
+  cambiarDatosProyecto = (id, campo, valor) => {
+    let arr = this.state.cliente.proyectos;
+    arr[id][campo] = valor;
+    this.setState({ proyectos: arr });
+  }
 
   render() {
     return (
       <div className="App">
         {<Nav user={this.state} cambiarPagina={this.cambiarPagina}/>}
-        <Header user={this.state} cambiarPagina={this.cambiarPagina} nuevoProyecto={this.nuevoProyecto}/>
+        <Header user={this.state} cambiarPagina={this.cambiarPagina} nuevoProyecto={this.nuevoProyecto} cambiarDatos = {this.cambiarDatosProyecto}/>
         <Footer user={this.state} cambiarPagina={this.cambiarPagina}/>
       </div>
     );

@@ -2,7 +2,7 @@
   "name": "projects_manager",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://oscarestudioskr.github.io/projects_manager",
+  "homepage": "https://oscarestudioskr.github.io/projects_manager/",
   "dependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

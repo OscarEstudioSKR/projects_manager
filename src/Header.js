@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logoP from './img/logoP.png';
 import diskete from './img/diskete.png';
+import { lchmodSync } from 'fs';
 
 
 class Header extends Component {
@@ -11,7 +12,7 @@ class Header extends Component {
       return (
         <div className="Cuerpo">
             {this.props.user.pagina === "Main" && <this.Main user={this.props.user}/>}
-            {this.props.user.pagina === "Proyectos" && <this.Proyectos user={this.props.user} nuevoProyecto={this.props.nuevoProyecto} caja={<this.CajaProject />}/>}
+            {this.props.user.pagina === "Proyectos" && <this.Proyectos user={this.props.user} caja={(i)=> <this.CajaProject id={i} cambiarDatos = {this.props.cambiarDatos}/>} nuevoProyecto={this.props.nuevoProyecto} />}
             {this.props.user.pagina === "Equipos" && <this.Equipos user={this.props.user}/>}
             {this.props.user.pagina === "Perfil" && <this.Perfil user={this.props.user}/>}
             {this.props.user.pagina === "Opciones" && <this.Opciones user={this.props.user}/>}
@@ -31,6 +32,13 @@ class Header extends Component {
         </div>);}
 
     Proyectos(e){
+      let objVacio = {
+        'id': e.user.cliente.proyectos.length,
+        'nombre': (e.user.cliente.proyectos.length+1)+'. Nuevo proyecto',
+        'descripcion': "Descripción del proyecto",
+      }
+
+
       return(
         <div className="ProyectosPage">
 
@@ -39,20 +47,31 @@ class Header extends Component {
           <div className="proyectosPage-div2">
             <div className="proyectosPage-div2-cabecera">
               <h2>{"Proyectos "+e.user.cliente.nombre}</h2>
-              <button onClick={e.nuevoProyecto}>Crear nuevo</button>
+              <button onClick={ ()=>(e.nuevoProyecto(objVacio)) } >Crear nuevo</button>
               <line></line>
             </div>
             <div className="proyectosPage-div2-contenido">
-             { e.user.cliente.proyectos.map(()=>e.caja)}
+             { e.user.cliente.proyectos.map((i)=>e.caja(i)) }
             </div>
           </div>
-        </div>);}
+        </div>);
+    }
+    
 
     CajaProject(e){
+      let obj = e.id;
+      let cambiar=(event)=>{ e.cambiarDatos(obj.id, event.target.name, event.target.value) }
+
       return(
         <div className="CajaProject">
-          <p>Caja Project</p>
-        </div>);}    
+          
+          <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
+          <button className="EliminarCaja">X</button>
+          <button className="botonCaja">Abrir</button>
+          <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.descripcion}/>
+         
+        </div>);
+    }    
       
     Equipos(e){
       return(
