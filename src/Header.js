@@ -12,7 +12,17 @@ class Header extends Component {
       return (
         <div className="Cuerpo">
             {this.props.user.pagina === "Main" && <this.Main user={this.props.user}/>}
-            {this.props.user.pagina === "Proyectos" && <this.Proyectos user={this.props.user} caja={(i)=> <this.CajaProject id={i} cambiarDatos = {this.props.cambiarDatos}/>} nuevoProyecto={this.props.nuevoProyecto} />}
+
+            {this.props.user.pagina === "Proyectos" && <this.Proyectos 
+              user={this.props.user}
+              nuevoProyecto={this.props.nuevoProyecto}
+              caja={(i)=> <this.CajaProject 
+                id={i}
+                cambiarDatos = {this.props.cambiarDatos}
+                eliminarProyecto = {this.props.eliminarProyecto}
+                />} 
+               />}
+
             {this.props.user.pagina === "Equipos" && <this.Equipos user={this.props.user}/>}
             {this.props.user.pagina === "Perfil" && <this.Perfil user={this.props.user}/>}
             {this.props.user.pagina === "Opciones" && <this.Opciones user={this.props.user}/>}
@@ -51,7 +61,7 @@ class Header extends Component {
               <line></line>
             </div>
             <div className="proyectosPage-div2-contenido">
-             { e.user.cliente.proyectos.map((i)=>e.caja(i)) }
+             { e.user.cliente.proyectos.map((i)=>e.caja(i)).reverse() }
             </div>
           </div>
         </div>);
@@ -60,16 +70,17 @@ class Header extends Component {
 
     CajaProject(e){
       let obj = e.id;
-      let cambiar=(event)=>{ e.cambiarDatos(obj.id, event.target.name, event.target.value) }
+      let cambiar=(event)=>{ e.cambiarDatos(obj.id, event.target.name, event.target.value)};
+      let eliminar=(event)=>{ e.eliminarProyecto(obj.id)};
 
       return(
         <div className="CajaProject">
-          
-          <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
-          <button className="EliminarCaja">X</button>
-          <button className="botonCaja">Abrir</button>
-          <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.descripcion}/>
-         
+          <button className="BotonCajaTodo">
+            <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
+            <button className="EliminarCaja" onClick={eliminar.bind(this)}>X</button>
+            <button className="botonCaja">Abrir</button>
+            <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.id}/>
+          </button>
         </div>);
     }    
       

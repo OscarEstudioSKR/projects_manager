@@ -59,14 +59,23 @@
 
 .CajaProject{
     width: 48%;
-    min-width: 250px;
+    min-width: 350px;
     margin: 1%;
     height: 100px;
     background: var(--color3);
 
+
+}
+.BotonCajaTodo{
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-content: flex-start;
+    padding: 0%;
+    margin: 0%;
+
 }
 
 .botonSinFondo{
@@ -78,26 +87,27 @@
 
 .EliminarCaja{
     width: 7%;
-    height: 30%;
+    height: 25px;
     background: var(--color6);
     border-style: none;
 }
 .botonCaja{
     width: 18%;
-    height: 30%;
+    height: 25px;
 }
 .tituloCaja {
     width: 68%;
     padding-left: 7%;
     background: var(--color2);
     color: var(--color0);
-    height: 30%;
+    height: 23px;
     font-size: 1em;
 }
 
 .textoCaja{
+    margin-top: 2%;
     resize: none;
-    height: 50%;
+    height: 65px;
     width: 90%;
 
 }
