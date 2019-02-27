@@ -8,6 +8,7 @@ class Header extends Component {
   constructor(props){
     super(props);
   }
+
     render() {
       return (
         <div className="Cuerpo">
@@ -16,10 +17,12 @@ class Header extends Component {
             {this.props.user.pagina === "Proyectos" && <this.Proyectos 
               user={this.props.user}
               nuevoProyecto={this.props.nuevoProyecto}
-              caja={(i)=> <this.CajaProject 
+              menuInfo = {<this.MenuInfo user={this.props.user}/>}
+              caja={ (i)=> <this.CajaProject 
                 id={i}
                 cambiarDatos = {this.props.cambiarDatos}
                 eliminarProyecto = {this.props.eliminarProyecto}
+                cambiarInfoProyecto ={this.props.cambiarInfoProyecto}
                 />} 
                />}
 
@@ -47,17 +50,15 @@ class Header extends Component {
         'nombre': (e.user.cliente.proyectos.length+1)+'. Nuevo proyecto',
         'descripcion': "Descripción del proyecto",
       }
-
-
       return(
         <div className="ProyectosPage">
-
-          <div className="proyectosPage-div1">1</div>
-
+          <div className="proyectosPage-div1">
+            {e.menuInfo }
+          </div>
           <div className="proyectosPage-div2">
             <div className="proyectosPage-div2-cabecera">
               <h2>{"Proyectos "+e.user.cliente.nombre}</h2>
-              <button onClick={ ()=>(e.nuevoProyecto(objVacio)) } >Crear nuevo</button>
+              <button onClick={ ()=>e.nuevoProyecto(objVacio) } >Crear nuevo</button>
               <line></line>
             </div>
             <div className="proyectosPage-div2-contenido">
@@ -67,19 +68,36 @@ class Header extends Component {
         </div>);
     }
     
+    MenuInfo(e){
+      let id = e.user.proyectoSeleccionado;
+      let projects = e.user.cliente.proyectos;
+      let project = projects[id];
+      if(id != -1){
+        return(
+          <div>
+            {project.nombre}
+          </div>
+        );
+      }else{
+        return(
+          "Cree un proyecto")
+      }
+    }
+    
 
     CajaProject(e){
       let obj = e.id;
       let cambiar=(event)=>{ e.cambiarDatos(obj.id, event.target.name, event.target.value)};
-      let eliminar=(event)=>{ e.eliminarProyecto(obj.id)};
+      let eliminar=()=>{ e.eliminarProyecto(obj.id)};
+      let infoProyecto =()=>{ e.cambiarInfoProyecto(obj.id);};
 
       return(
         <div className="CajaProject">
-          <button className="BotonCajaTodo">
+          <button className="BotonCajaTodo" onClick={infoProyecto.bind(this)}>
             <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
             <button className="EliminarCaja" onClick={eliminar.bind(this)}>X</button>
             <button className="botonCaja">Abrir</button>
-            <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.id}/>
+            <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.descripcion}/>
           </button>
         </div>);
     }    

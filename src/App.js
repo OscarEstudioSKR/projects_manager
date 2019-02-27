@@ -12,6 +12,7 @@ class App extends Component {
     super();
     this.state= {
       pagina: "Proyectos",
+      proyectoSeleccionado: -1,
       cliente: { 
         nombre: "Invitado",
         imgUser: "Invitado",
@@ -21,16 +22,27 @@ class App extends Component {
     }
   }
 
-  cambiarPagina = (e) => this.setState({ pagina: e });
+  cambiarPagina = (index) => this.setState({ pagina: index });
 
-  nuevoProyecto = (e) => {
-    this.setState({ proyectos: this.state.cliente.proyectos.push(e) });}
+  cambiarInfoProyecto = (id) => 
+    {if(id<this.state.cliente.proyectos.length){ 
+      this.setState({ proyectoSeleccionado: id });}}
+
+  nuevoProyecto = (e) => { 
+    this.setState({ 
+      proyectos: this.state.cliente.proyectos.push(e),
+      proyectoSeleccionado: e.id,
+     });
+  }
 
   eliminarProyecto = (indice) => {
     let arr = this.state.cliente.proyectos;
     arr.splice(indice,1);
     arr.map((obj)=>{ if(obj.id >= indice){ obj.id -= 1 } });
-    this.setState({ proyectos: arr })
+    this.setState({   
+      proyectos: arr,
+      proyectoSeleccionado: -1,
+    });
   }
 
   cambiarDatosProyecto = (id, campo, valor) => {
@@ -38,6 +50,9 @@ class App extends Component {
     arr[id][campo] = valor;
     this.setState({ proyectos: arr });
   }
+
+
+
 
   render() {
     return (
@@ -48,7 +63,8 @@ class App extends Component {
           cambiarPagina={this.cambiarPagina}
           nuevoProyecto={this.nuevoProyecto}
           cambiarDatos = {this.cambiarDatosProyecto}
-          eliminarProyecto = {this.eliminarProyecto} 
+          eliminarProyecto = {this.eliminarProyecto}
+          cambiarInfoProyecto = {this.cambiarInfoProyecto} 
           />
         <Footer user={this.state} cambiarPagina={this.cambiarPagina}/>
       </div>
