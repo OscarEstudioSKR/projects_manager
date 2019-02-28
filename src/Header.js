@@ -18,10 +18,12 @@ class Header extends Component {
             {this.props.user.pagina === "Proyectos" && <this.Proyectos 
               
               user={this.props.user}
+              proyectoVacio={this.props.proyectoVacio}
               nuevoProyecto={this.props.nuevoProyecto}
               menuInfo = {<this.MenuInfo 
                 user = {this.props.user}/>}
               caja={ (i)=> <this.CajaProject 
+                user = {this.props.user}
                 id={i}
                 cambiarDatos = {this.props.cambiarDatos}
                 eliminarProyecto = {this.props.eliminarProyecto}
@@ -48,17 +50,7 @@ class Header extends Component {
         </div>);}
 
     Proyectos(e){
-      let objVacio = {
-        'id': e.user.cliente.proyectos.length,
-        'nombre': (e.user.cliente.proyectos.length+1)+'. Nuevo proyecto',
-        'descripcion': "Descripción corta",
-        'descripcion2': "Descripción larga",
-        'equipo': [{
-          'id': 0,
-          'img': e.user.cliente.imgUser,
-        }]
 
-      }
       return(
         <div className="ProyectosPage">
           <div className="proyectosPage-div1">
@@ -67,7 +59,7 @@ class Header extends Component {
           <div className="proyectosPage-div2">
             <div className="proyectosPage-div2-cabecera">
               <h2>{"Proyectos "+e.user.cliente.nombre}</h2>
-              <button onClick={ ()=>e.nuevoProyecto(objVacio) } >Crear nuevo</button>
+              <button onClick={ ()=>e.nuevoProyecto(e.proyectoVacio) } >Crear nuevo</button>
               <line></line>
             </div>
             <div className="proyectosPage-div2-contenido">
@@ -124,9 +116,18 @@ class Header extends Component {
       let eliminar=()=>{ e.eliminarProyecto(obj.id)};
       let infoProyecto =()=>{ e.cambiarInfoProyecto(obj.id);};
 
+      let styleSelected = "";
+      obj.id === e.user.proyectoSeleccionado ?
+        styleSelected = {
+          border: '1px solid var(--color3)',
+          boxShadow: '2px 2px 12px var(--color1)'}:
+        styleSelected = {border: '1px solid var(--color5)'}
+
+
+
       return(
-        <div className="CajaProject">
-          <button className="BotonCajaTodo" onClick={infoProyecto.bind(this)}>
+        <div className="CajaProject" >
+          <button className="BotonCajaTodo" style={styleSelected} onClick={infoProyecto.bind(this)}>
             <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
             <button className="EliminarCaja" onClick={eliminar.bind(this)}>X</button>
             <button className="botonCaja">Abrir</button>

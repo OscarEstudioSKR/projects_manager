@@ -7,8 +7,6 @@ import triangulo from './img/triangulo.png';
 import Buscador from './elements/js/Buscador';
 import checkImg from './img/checkImg.png';
 
-import userImg0 from './img/userImg0.png';
-
 
 
 class Nav extends Component {
@@ -45,13 +43,17 @@ class Nav extends Component {
       return (
         <div className="Nav">
             <div className="nav">
-                <img className="logo-img" src={logoP} onClick={()=>this.props.cambiarPagina("Main")}/>
+                <button className="logo-img" onClick={()=>this.props.cambiarPagina("Main")}><img src={logoP} /></button>
                 <Buscador />
                 <a className="enlace-nav" onClick={()=>this.props.cambiarPagina("Proyectos")}>Proyectos</a>
                 <a className="enlace-nav" onClick={()=>this.props.cambiarPagina("Equipos")}>Equipos</a>
             </div>
             <div className="nav nav2">
-                <button className="boton-anadir"><img src={anadir} className="img-anadir"/></button>
+                <button className="boton-anadir" onClick={()=>{
+                    this.props.cambiarPagina("Proyectos");
+                    this.cerrarMenus.bind(this);
+                    this.props.nuevoProyecto(this.props.proyectoVacio);
+                    }}><img src={anadir} className="img-anadir"/></button>
                 <button onClick={this.abrirMenuUser = this.abrirMenuUser.bind(this)} className="boton-menu-p boton-user"><img src={this.props.user.cliente.imgUser} className="user-logo"/><img src={triangulo} className="triangulo"/></button>
                 <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
             </div>

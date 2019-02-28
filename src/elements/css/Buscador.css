@@ -12,14 +12,15 @@
 .Buscador button{
     background: none;
     border: none;
+    margin-left: 5%;
 }
 .Buscador button:focus{
     outline-style: none;
+    
 }
 
 .Buscador button img:hover{
-    transform: translate(-3px);
-    padding-left: 3px;
+    cursor: pointer;
 }
 .Buscador input{
     width: 70%;

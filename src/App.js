@@ -60,11 +60,28 @@ class App extends Component {
 
 
   render() {
+    let proyectoVacio = {
+      'id': this.state.cliente.proyectos.length,
+      'nombre': (this.state.cliente.proyectos.length+1)+'. Nuevo proyecto',
+      'descripcion': "Descripción corta",
+      'descripcion2': "Descripción larga",
+      'equipo': [{
+        'id': 0,
+        'img': this.state.cliente.imgUser,
+      }]
+    }
+
     return (
       <div className="App">
-        {<Nav user={this.state} cambiarPagina={this.cambiarPagina}/>}
+        {<Nav 
+          user={this.state} 
+          cambiarPagina={this.cambiarPagina}
+          nuevoProyecto={this.nuevoProyecto}
+          proyectoVacio = {proyectoVacio}
+          />}
         <Header 
           user={this.state}
+          proyectoVacio = {proyectoVacio}
           cambiarPagina={this.cambiarPagina}
           nuevoProyecto={this.nuevoProyecto}
           cambiarDatos = {this.cambiarDatosProyecto}
