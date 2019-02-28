@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import userImg from './img/user_invitado.png';
+
 import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
@@ -13,11 +15,14 @@ class App extends Component {
     this.state= {
       pagina: "Proyectos",
       proyectoSeleccionado: -1,
+      menu: "",
+      cambiarValor: (campo, valor)=>this.setState ({ [campo]: valor }),
       cliente: { 
         nombre: "Invitado",
-        imgUser: "Invitado",
+        imgUser: userImg,
         correo: "",
         proyectos: [],
+        equipos: [],
       },
     }
   }

@@ -52,7 +52,7 @@ class Nav extends Component {
             </div>
             <div className="nav nav2">
                 <button className="boton-anadir"><img src={anadir} className="img-anadir"/></button>
-                <button onClick={this.abrirMenuUser = this.abrirMenuUser.bind(this)} className="boton-menu-p boton-user"><img src={userImg0} className="user-logo"/><img src={triangulo} className="triangulo"/></button>
+                <button onClick={this.abrirMenuUser = this.abrirMenuUser.bind(this)} className="boton-menu-p boton-user"><img src={this.props.user.cliente.imgUser} className="user-logo"/><img src={triangulo} className="triangulo"/></button>
                 <button onClick={this.abrirMenuOpt = this.abrirMenuOpt.bind(this)} className="boton-menu-p"><img src={botonMenu} className="img-menu-p" /></button>
             </div>
             

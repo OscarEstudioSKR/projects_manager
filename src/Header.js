@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logoP from './img/logoP.png';
 import diskete from './img/diskete.png';
+import mas from './img/mas.png';
 import { lchmodSync } from 'fs';
 
 
@@ -15,9 +16,11 @@ class Header extends Component {
             {this.props.user.pagina === "Main" && <this.Main user={this.props.user}/>}
 
             {this.props.user.pagina === "Proyectos" && <this.Proyectos 
+              
               user={this.props.user}
               nuevoProyecto={this.props.nuevoProyecto}
-              menuInfo = {<this.MenuInfo user={this.props.user}/>}
+              menuInfo = {<this.MenuInfo 
+                user = {this.props.user}/>}
               caja={ (i)=> <this.CajaProject 
                 id={i}
                 cambiarDatos = {this.props.cambiarDatos}
@@ -48,7 +51,13 @@ class Header extends Component {
       let objVacio = {
         'id': e.user.cliente.proyectos.length,
         'nombre': (e.user.cliente.proyectos.length+1)+'. Nuevo proyecto',
-        'descripcion': "Descripción del proyecto",
+        'descripcion': "Descripción corta",
+        'descripcion2': "Descripción larga",
+        'equipo': [{
+          'id': 0,
+          'img': e.user.cliente.imgUser,
+        }]
+
       }
       return(
         <div className="ProyectosPage">
@@ -72,16 +81,40 @@ class Header extends Component {
       let id = e.user.proyectoSeleccionado;
       let projects = e.user.cliente.proyectos;
       let project = projects[id];
-      if(id != -1){
-        return(
-          <div>
-            {project.nombre}
+      let listaEquipos = e.user.cliente.equipos;
+
+      return(
+        <div>
+          <div className="recuadro-img-logo">
+            <img src={e.user.cliente.imgUser} className="img-logo-g"/>
+            <header className="titulo-proyecto-info">
+              {id != -1 ? project.nombre.toUpperCase(): "Seleccione un proyecto"}
+            </header>         
           </div>
-        );
-      }else{
-        return(
-          "Cree un proyecto")
-      }
+          {id != -1 && <div className="contenido-info">
+            <div>
+              Equipo: 
+              <br/><hr/>
+              {project.equipo.map((obj)=> <img src={obj.img} className="img-p-equipo"/>)}
+              <button onClick={()=>e.user.cambiarValor('menu', 'Lista de Usuarios')} className="botonSinFondo"><img src={mas} className="img-p-equipo  boton-borde"/></button>
+              <br/><hr/>  
+            </div>
+            Descripción:<br/><hr/>
+            <p>{project.descripcion}</p><hr/>
+            Detalles: <br/><hr/>
+            <p>{project.descripcion2}</p>
+          </div>}
+          {e.user.menu === "Lista de Usuarios" && 
+            <div className="ventana-extra">
+              <header className="titulo-ventana-extra">USUARIOS</header>
+              <div className="interior-ventana-extra">
+                {project.equipo.map((obj)=> <img src={obj.img} onClick={()=>e.user.cambiarValor('menu', '')} className="img-m-equipo"/>)}
+                </div>
+              <footer className="footer-ventana-extra"><button onClick={()=>e.user.cambiarValor('menu', '')} className="boton-cerrar-extra">Cerrar</button></footer>
+            </div>}
+        </div>
+        
+      ) 
     }
     
 
