@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './colores.css';
+import './css/style.css';
 import './index.css';
 import './Nav.css';
 import './Header.css';

@@ -59,7 +59,7 @@ class Footer extends Component {
           <p>
             {e.user.formName ==="" ? "Gracias " + nombre : "Gracias " + e.user.formName.toUpperCase()}, tu mensaje ha sido enviado correctamente.<br /> Te responderemos en breve al correo {e.user.formMail}.
           </p>
-          <button onClick={e.user.cerrarFormulario}>Nuevo mensaje</button>
+          <button className="fx-boton" onClick={e.user.cerrarFormulario}>Nuevo mensaje</button>
         </div>
       )
     }
@@ -81,7 +81,7 @@ class Footer extends Component {
                   <input name="formName" value={this.state.formName} onChange={this.cambiar.bind(this)} className="input-text" placeholder="Nombre" type="text" />,
                   <input name="formMail" value={this.state.formMail} onChange={this.cambiar.bind(this)} className="input-text" placeholder="Correo" type="email" required />,
                   <input name="formMensaje" value={this.state.formMensaje} onChange={this.cambiar.bind(this)} className="input-area" placeholder="Mensaje" type="text" required />,
-                  <button className="boton-azul" onClick={this.enviarDatos.bind(this)}>Enviar</button>]:
+                  <button className="boton-azul fx-boton" onClick={this.enviarDatos.bind(this)}>Enviar</button>]:
                 <this.FormularioEnviado user={this.state}/>}
               </form>
               

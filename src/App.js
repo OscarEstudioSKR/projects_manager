@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import userImg from './img/user_invitado.png';
-
 import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
@@ -62,7 +61,7 @@ class App extends Component {
   render() {
     let proyectoVacio = {
       'id': this.state.cliente.proyectos.length,
-      'nombre': (this.state.cliente.proyectos.length+1)+'. Nuevo proyecto',
+      'nombre': 'Nuevo proyecto',
       'descripcion': "Descripción corta",
       'descripcion2': "Descripción larga",
       'equipo': [{

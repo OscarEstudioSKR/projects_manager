@@ -11,6 +11,12 @@ class Header extends Component {
   }
 
     render() {
+      let proyectoSeleccionado = this.props.user.cliente.proyectos[this.props.user.proyectoSeleccionado];
+      let eliminar = ()=>{
+        this.props.user.cambiarValor('menu', '');
+        this.props.eliminarProyecto(this.props.user.proyectoSeleccionado);}
+
+
       return (
         <div className="Cuerpo">
             {this.props.user.pagina === "Main" && <this.Main user={this.props.user}/>}
@@ -30,6 +36,17 @@ class Header extends Component {
                 cambiarInfoProyecto ={this.props.cambiarInfoProyecto}
                 />} 
                />}
+            
+            {this.props.user.menu==="confirmarEliminar" &&
+              
+              <div className="ventana-extra2">
+                <header className="titulo-ventana-extra">{'¿Deseas eliminar el proyecto \"' + proyectoSeleccionado.nombre.toUpperCase() + '\"?'}</header>
+                <div className="interior-ventana-extra2"><br/>¿Seguro que quieres eliminar este proyecto? <br/> La acción no se podrá deshacer.</div>
+                <footer className="footer-ventana-extra2">
+                  <button className="boton-cerrar-extra3 fx-boton" onClick={eliminar.bind(this)}>Eliminar</button>
+                  <button onClick={()=>this.props.user.cambiarValor('menu', '')} className="boton-cerrar-extra2 fx-boton">Cerrar</button></footer>
+              </div>
+            }
 
             {this.props.user.pagina === "Equipos" && <this.Equipos user={this.props.user}/>}
             {this.props.user.pagina === "Perfil" && <this.Perfil user={this.props.user}/>}
@@ -59,7 +76,7 @@ class Header extends Component {
           <div className="proyectosPage-div2">
             <div className="proyectosPage-div2-cabecera">
               <h2>{"Proyectos "+e.user.cliente.nombre}</h2>
-              <button onClick={ ()=>e.nuevoProyecto(e.proyectoVacio) } >Crear nuevo</button>
+              <button className="fx-boton" onClick={ ()=>e.nuevoProyecto(e.proyectoVacio) } >Crear nuevo</button>
               <line></line>
             </div>
             <div className="proyectosPage-div2-contenido">
@@ -73,7 +90,6 @@ class Header extends Component {
       let id = e.user.proyectoSeleccionado;
       let projects = e.user.cliente.proyectos;
       let project = projects[id];
-      let listaEquipos = e.user.cliente.equipos;
 
       return(
         <div>
@@ -88,7 +104,7 @@ class Header extends Component {
               Equipo: 
               <br/><hr/>
               {project.equipo.map((obj)=> <img src={obj.img} className="img-p-equipo"/>)}
-              <button onClick={()=>e.user.cambiarValor('menu', 'Lista de Usuarios')} className="botonSinFondo"><img src={mas} className="img-p-equipo  boton-borde"/></button>
+              <button onClick={()=>e.user.cambiarValor('menu', 'Lista de Usuarios')} className="botonSinFondo "><img src={mas} className="img-p-equipo  boton-borde fx-boton"/></button>
               <br/><hr/>  
             </div>
             Descripción:<br/><hr/>
@@ -100,9 +116,9 @@ class Header extends Component {
             <div className="ventana-extra">
               <header className="titulo-ventana-extra">USUARIOS</header>
               <div className="interior-ventana-extra">
-                {project.equipo.map((obj)=> <img src={obj.img} onClick={()=>e.user.cambiarValor('menu', '')} className="img-m-equipo"/>)}
+                {project.equipo.map((obj)=> <img src={obj.img} onClick={()=>e.user.cambiarValor('menu', '')} className="img-m-equipo fx-boton"/>)}
                 </div>
-              <footer className="footer-ventana-extra"><button onClick={()=>e.user.cambiarValor('menu', '')} className="boton-cerrar-extra">Cerrar</button></footer>
+              <footer className="footer-ventana-extra"><button onClick={()=>e.user.cambiarValor('menu', '')} className="boton-cerrar-extra fx-boton">Cerrar</button></footer>
             </div>}
         </div>
         
@@ -113,7 +129,6 @@ class Header extends Component {
     CajaProject(e){
       let obj = e.id;
       let cambiar=(event)=>{ e.cambiarDatos(obj.id, event.target.name, event.target.value)};
-      let eliminar=()=>{ e.eliminarProyecto(obj.id)};
       let infoProyecto =()=>{ e.cambiarInfoProyecto(obj.id);};
 
       let styleSelected = "";
@@ -128,9 +143,12 @@ class Header extends Component {
       return(
         <div className="CajaProject" >
           <button className="BotonCajaTodo" style={styleSelected} onClick={infoProyecto.bind(this)}>
+            <span className="idCaja">{(obj.id+1)+". "}</span>
             <input onChange={cambiar.bind(this)} name="nombre" className="tituloCaja botonSinFondo" type="text" value={obj.nombre}/>
-            <button className="EliminarCaja" onClick={eliminar.bind(this)}>X</button>
-            <button className="botonCaja">Abrir</button>
+            <button className="EliminarCaja fx-boton" onClick={()=>e.user.cambiarValor('menu', 'confirmarEliminar')}>X</button>
+
+
+            <button className="botonCaja fx-boton">Abrir</button>
             <textarea onChange={cambiar.bind(this)} name="descripcion" className="textoCaja botonSinFondo" type="text" value={obj.descripcion}/>
           </button>
         </div>);
