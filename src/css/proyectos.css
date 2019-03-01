@@ -1,5 +1,7 @@
 
 .ProyectosPage{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
     margin-top: 3%;
@@ -21,10 +23,19 @@
     height: 30px;
     background: none;
     color: var(--color2);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .proyectosPage-div2-cabecera h2{
     font-size: 1.3em;
@@ -46,9 +57,16 @@
 }
 .proyectosPage-div2-contenido{
     margin-top: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .CajaProject{
@@ -63,10 +81,18 @@
 .BotonCajaTodo{
     height: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
     padding: 0%;
     margin: 0%;
 
@@ -168,7 +194,8 @@
     background: white;
     border-radius: 1%;
     border: 1px solid var(--color5);
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
+    -webkit-box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
+            box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
 
 }
 .titulo-ventana-extra{
@@ -199,6 +226,7 @@
 .boton-cerrar-extra{
     width: 30%;
     height: 70%;
+    background: -webkit-gradient(linear,left top, left bottom,from(#39d55d),color-stop(#32ca55),to(#27a644));
     background: linear-gradient(180deg,#39d55d,#32ca55,#27a644);
     border: 1px, solid, #1e7b33;
     float: right;
@@ -231,7 +259,8 @@
     background: white;
     border-radius: 1%;
     border: 1px solid var(--color5);
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
+    -webkit-box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
+            box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.116);
 
 }
 .interior-ventana-extra2{
@@ -250,6 +279,7 @@
 .boton-cerrar-extra2{
     width: 30%;
     height: 70%;
+    background: -webkit-gradient(linear,left top, left bottom,from(#39d55d),color-stop(#32ca55),to(#27a644));
     background: linear-gradient(180deg,#39d55d,#32ca55,#27a644);
     border: 1px, solid, #1e7b33;
     float: right;
@@ -265,6 +295,7 @@
 .boton-cerrar-extra3{
     width: 30%;
     height: 70%;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--color6)),color-stop(var(--color6)),to(#963c36));
     background: linear-gradient(180deg, var(--color6),var(--color6),#963c36);
     border: 1px, solid, #b9524a;
     float: right;

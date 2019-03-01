@@ -1,4 +1,27 @@
+:root{
+    --color0: #e7e8eb;
+    --color1: #363a46;
+    --color2: #3b4f65;
+    --color3: #5c7693;
+    --color4: #0366d6;
+    --color5: rgb(195, 195, 196);
+    --color6: #da5c53;
+    --color7: rgb(128, 128, 128);
+}
+
+.App {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+
 .fx-boton:hover{
-    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
     cursor: pointer;
 }
