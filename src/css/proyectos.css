@@ -11,7 +11,6 @@
 
 .proyectosPage-div1{
     width: 30%;
-    height: 700px;
 }
 
 .proyectosPage-div2{
@@ -74,11 +73,11 @@
     min-width: 350px;
     margin: 1%;
     height: 100px;
-    background: var(--color3);
 
 
 }
 .BotonCajaTodo{
+    background: var(--color0);
     height: 100%;
     width: 100%;
     display: -webkit-box;
@@ -98,11 +97,7 @@
 
 }
 
-.botonSinFondo{
-    background: none;
-    border: none;
-    outline-style: none;
-}
+
 
 
 
@@ -138,6 +133,7 @@
     resize: none;
     height: 55px;
     width: 90%;
+    
 
 }
 
@@ -166,7 +162,7 @@
 }
 .img-p-equipo{
     width: 30px;
-    border: solid #4acac1 1px; 
+    border: solid var(--color8) 1px; 
 }
 .img-m-equipo{
     width: 80px;

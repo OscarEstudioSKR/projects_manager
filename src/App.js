@@ -12,7 +12,7 @@ class App extends Component {
   constructor(){
     super();
     this.state= {
-      pagina: "Proyectos",
+      pagina: "Equipos",
       proyectoSeleccionado: -1,
       menu: "",
       cambiarValor: (campo, valor)=>this.setState ({ [campo]: valor }),
@@ -21,7 +21,11 @@ class App extends Component {
         imgUser: userImg,
         correo: "",
         proyectos: [],
-        equipos: [],
+        contactos: [],
+        equipos: [{
+          nombreEquipo: "Equipo sin nombre",
+          miembros: [],
+        }],
       },
     }
   }
@@ -71,7 +75,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className="App" id="App">
         {<Nav 
           user={this.state} 
           cambiarPagina={this.cambiarPagina}

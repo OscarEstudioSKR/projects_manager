@@ -1,0 +1,49 @@
+
+.texto-1{
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color3);
+    margin-right: 2%;
+}
+
+.proyecto-caja{
+    width: 100%;
+    margin: 1%;
+    padding: 2%;
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid var(--color0);
+    background: rgb(247, 247, 247);
+    box-shadow: 3px 3px 1px var(--color5);
+
+}
+.proyecto-caja h2{
+    width: 90%;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #446a9b;
+}
+.proyecto-caja button{
+    width: 10%;
+    height: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color0);
+    background: linear-gradient( var(--color3), var(--color3), var(--color2))
+}
+
+.proyecto-caja p{
+    width: 100%;
+    margin-top: -1%;
+    font-size: 0.9em;
+    color: var(--color7);
+}
+
+.proyecto-caja div{
+    width: 100%;
+}
+.proyecto-caja div img{
+    width: 50px;
+    margin: 1%;
+}

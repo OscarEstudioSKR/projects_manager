@@ -7,6 +7,7 @@
     --color5: rgb(195, 195, 196);
     --color6: #da5c53;
     --color7: rgb(128, 128, 128);
+    --color8: #4acac1;
 }
 
 .App {
@@ -25,3 +26,17 @@
             filter: brightness(1.1);
     cursor: pointer;
 }
+
+.botonSinFondo{
+    background: none;
+    border: none;
+    outline-style: none;
+}
+.boton-100{
+    width: 1fr;
+}
+
+.linia-end{
+    border-bottom: 1px solid var(--color5);
+}
+

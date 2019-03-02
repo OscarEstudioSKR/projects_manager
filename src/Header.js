@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Perfil from './perfil.js';
+import Equipos from './equipos.js';
 import logoP from './img/logoP.png';
 import diskete from './img/diskete.png';
 import mas from './img/mas.png';
-import { lchmodSync } from 'fs';
 
 
 class Header extends Component {
@@ -48,8 +49,8 @@ class Header extends Component {
               </div>
             }
 
-            {this.props.user.pagina === "Equipos" && <this.Equipos user={this.props.user}/>}
-            {this.props.user.pagina === "Perfil" && <this.Perfil user={this.props.user}/>}
+            {this.props.user.pagina === "Equipos" && <Equipos user={this.props.user}/>}
+            {this.props.user.pagina === "Perfil" && <Perfil user={this.props.user}/>}
             {this.props.user.pagina === "Opciones" && <this.Opciones user={this.props.user}/>}
         </div>
       );
@@ -154,16 +155,6 @@ class Header extends Component {
         </div>);
     }    
       
-    Equipos(e){
-      return(
-        <div className="MainPage">
-          <h1>Equipos</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
-        </div>);}
-    Perfil(e){
-      return(
-        <div className="MainPage">
-          <h1>Perfil</h1><h2>Gestiona todos tus proyectos en un mismo lugar.</h2>    
-        </div>);}
     Opciones(e){
         return(
           <div className="MainPage">
