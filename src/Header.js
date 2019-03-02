@@ -117,7 +117,16 @@ class Header extends Component {
             <div className="ventana-extra">
               <header className="titulo-ventana-extra">USUARIOS</header>
               <div className="interior-ventana-extra">
-                {project.equipo.map((obj)=> <img src={obj.img} onClick={()=>e.user.cambiarValor('menu', '')} className="img-m-equipo fx-boton"/>)}
+                {e.user.cliente.contactos.map((obj)=>{
+                  return(
+                    <div className="caja-user-name fx-boton" onClick={()=>e.user.cambiarValor('menu', '')}>
+                      <img src={obj.img}  className="img-m-equipo"/>
+                      <p>{obj.nombre}</p>
+                    </div>
+                  )}
+                  
+                  
+                  )}
                 </div>
               <footer className="footer-ventana-extra"><button onClick={()=>e.user.cambiarValor('menu', '')} className="boton-cerrar-extra fx-boton">Cerrar</button></footer>
             </div>}

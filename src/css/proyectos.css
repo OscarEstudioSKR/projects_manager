@@ -164,9 +164,19 @@
     width: 30px;
     border: solid var(--color8) 1px; 
 }
-.img-m-equipo{
-    width: 80px;
+.caja-user-name{
+    width: 150px;
+    height: 180px;
     margin:1%;
+    border: 1px solid var(--color0);
+}
+.caja-user-name p{
+    text-align: center;
+    margin-top: -1%;
+    color: var(--color2);
+}
+.img-m-equipo{
+    width: 100%;
 }
 
 
@@ -186,7 +196,7 @@
     width: 80%;
     max-width: 715px;
     height: 50%;
-    max-height: 400px;
+    max-height: 570px;
     background: white;
     border-radius: 1%;
     border: 1px solid var(--color5);
@@ -203,6 +213,7 @@
     padding-left: 3%;
     font-weight: bold;
     color: var(--color1);
+
 }
 .interior-ventana-extra{
     width: 97%;
@@ -210,6 +221,8 @@
     padding-left: 3%;
     overflow-y: scroll;
     border-bottom: 1px rgb(223, 223, 223) solid;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .footer-ventana-extra{
