@@ -7,8 +7,8 @@ class Equipos extends Component {
   }
 
     render() {
-        let equipos = this.props.user.Cliente.equipos;
-        
+        let equipos = this.props.user.cliente.equipos;
+
         return(
             <div className="Equipos-page">
                 <div className="titulo-pg-equipos">
