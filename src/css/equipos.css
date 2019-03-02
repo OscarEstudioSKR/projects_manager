@@ -1,12 +1,33 @@
 .Equipos-page{
     padding-top: 5%;
-    padding-bottom: 2%;
+    margin-bottom: 2%;
+    min-height: 50vh;
     
 }
 
 .titulo-pg-equipos{
-    padding-bottom: 2%;
     border-bottom: 1px solid var(--color5);
+    display: flex;
+    justify-content: space-between;
+    height: 152px;
+}
+
+.titulo-pg-equipos span{
+    padding-bottom: 2%;
+    width: 30%;
+}
+
+.titulo-pg-equipos button{
+    height: 40px;
+    background: var(--color6);
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 1%;
+    outline-style: none;
+    align-self: flex-end;
+    margin-bottom: 1%;
+    padding-bottom: 2.2%;
 }
 
 .titulo-pg-equipos h1{
@@ -20,22 +41,71 @@
     margin-top: -0.5%;
     color: var(--color4);
     font-weight: bold;
-    width: 30%;
 }
 
-.titulo-pg-equipos button{
+.titulo-pg-equipos span button{
     background: var(--color8);
     width: 200px;
-    height: 40px;
+    height: 35px;
     color: white;
     font-size: 1em;
     font-weight: bold;
     border: none;
     border-radius: 10px;
-    margin-top: -1%;
+    margin-top: -1.5%;
     outline-style: none;
 }
 
 .contenido-pg-equipos{
     margin-top: 1%;
+}
+
+.ventana-contacto-nuevo{
+    position: absolute;
+    width: 300px;
+    height: 535px;
+    background: rgb(243, 243, 243); 
+    color: var(--color3);
+    border-radius: 10px;
+    padding: 1%;
+    border: 1px solid var(--color5);
+    box-shadow: 6px 3px 1px var(--color0);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 45%;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.ventana-contacto-nuevo img{
+    width: 90%;
+    height: 50%;
+    margin: 5%;
+}
+.ventana-contacto-nuevo input{
+    width: 90%;
+    margin: 1%;
+    border: 1px solid var(--color5);
+    text-align: center;
+    color: var(--color2);
+}
+.ventana-contacto-nuevo textarea{
+    width: 90%;
+    margin: 1%;
+    height: 20%;
+    border: 1px solid var(--color5);
+    text-align: center;
+    resize: none;
+    color: var(--color2);
+}
+.ventana-contacto-nuevo button{
+    width: 45%;
+    height: 30px;
+    background: var(--color3);
+    color: white;
+    outline-style: none;
+    margin: 1%;
 }

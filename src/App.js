@@ -74,6 +74,14 @@ class App extends Component {
       }]
     }
 
+
+    //Pruebas
+    setInterval(() => {
+      console.log("Contactos: "+JSON.stringify(this.state.cliente.contactos));
+    }, 1000);
+
+
+
     return (
       <div className="App" id="App">
         {<Nav 
