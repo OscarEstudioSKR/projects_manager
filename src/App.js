@@ -76,9 +76,9 @@ class App extends Component {
 
 
     //Pruebas
-    setInterval(() => {
-      console.log("Contactos: "+JSON.stringify(this.state.cliente.contactos));
-    }, 1000);
+    //setInterval(() => {
+      //console.log("Contactos: "+JSON.stringify(this.state.cliente.contactos));
+    //}, 1000);
 
 
 

@@ -9,20 +9,17 @@ class Equipos extends Component {
         'correo': 'Correo',
         'comentario': 'Comentario',
         'img': this.props.user.cliente.imgUser,
+        'ventana': '',
+        
     }
   }
-    cambiarState( campo, valor ){ this.setState({ [campo]: valor })};
-    anadirContacto(contacto){ this.props.user.cliente.contactos.push(contacto) }
+    cambiarState( event ){ this.setState({ [event.target.name]: event.target.value })};
+    cerrarVentan(){ this.setState({ ventana: '' })};
+    abrirVentana(value){ this.setState({ ventana: value })};
+    anadirContacto(contacto){ this.props.user.cliente.contactos.push(contacto); this.cerrarVentan(); }
 
     render() {
-        let equipos = this.props.user.cliente.equipos;    
-        let nuevoContacto = {
-            'nombre': this.state.nombre,
-            'correo': this.state.correo,
-            'comentario': this.state.comentario,
-            'img': this.state.img,
-        }
-       
+        let equipos = this.props.user.cliente.equipos;           
 
         return(
             <div className="Equipos-page">
@@ -30,7 +27,7 @@ class Equipos extends Component {
                     <span>
                         <h1>Equipos</h1>
                         <p>AÑADE CONTÁCTOS PARA PODER GESTIONAR TUS EQUIPOS</p>
-                        <button className="fx-boton">Nuevo contacto</button>
+                        <button onClick={this.abrirVentana.bind(this, 'nuevoContacto')} className="fx-boton">Nuevo contacto</button>
                     </span>
                     
                     <button className="fx-boton">Nuevo equipo</button>
@@ -38,15 +35,24 @@ class Equipos extends Component {
                 <div className="contenido-pg-equipos">
                     f
                 </div>
-                <div className="ventana-contacto-nuevo">
-                    <img src={this.props.user.cliente.imgUser}/>
-                    <input className="botonSinFondo" onChange={()=>this.cambiarState('nombre', this.value)} type="text" value={this.state.nombre}/>
-                    <input className="botonSinFondo" onChange={()=>this.cambiarState('correo', this.value)} type="email" value={this.state.correo}/>
-                    <textarea className="botonSinFondo" onChange={()=>this.cambiarState('comentario', this.value)} type="text" value={this.state.comentario}/>
-                    <button className="fx-boton" >Descartar</button>
-                    <button className="fx-boton" onClick={()=>{this.anadirContacto(nuevoContacto)}} >Guardar</button>
+                {this.state.ventana==='nuevoContacto' && 
+                    <div className="ventana-contacto-nuevo">
+                        <img src={this.props.user.cliente.imgUser}/>
+                        <input className="botonSinFondo" onChange={this.cambiarState.bind(this)} name='nombre' type="text" value={this.state.nombre}/>
+                        <input className="botonSinFondo" onChange={this.cambiarState.bind(this)} name='correo' type="email" value={this.state.correo}/>
+                        <textarea className="botonSinFondo" onChange={this.cambiarState.bind(this)} name='comentario' type="text" value={this.state.comentario}/>
+                        <button className="fx-boton" onClick={this.cerrarVentan.bind(this)}>Descartar</button>
+                        <button className="fx-boton" onClick={()=>{
+                            this.anadirContacto({
+                                'nombre':this.state.nombre,
+                                'correo':this.state.correo,
+                                'comentario': this.state.comentario,
+                                'img': this.state.img
+                            });}} >Guardar</button>
 
-                </div>
+                    </div>
+                }
+                
                 
             </div>
         )
